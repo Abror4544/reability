@@ -8,6 +8,10 @@ $(function () {
     }
   });
 
+  $(".open_checks").click(function(){
+    $(".extra").slideToggle();
+  })
+
   $(document).mouseup(function (e) {
     var div = $(".city_list");
     if (!div.is(e.target) && div.has(e.target).length === 0) {
@@ -82,11 +86,11 @@ $(function () {
 
   transliterate = (function () {
     var rus =
-        "щ   ш  ч  ц  ю  я  ё  ж  ъ  ы  э  а б в г д е з и й к л м н о п р с т у ф х ь".split(
+        "щ ш ч Ч ц ю я ё ж ъ ы э а б в г д е з и й к л м н о п р с т у ф х ь".split(
           / +/g
         ),
       eng =
-        "shh sh ch cz yu ya yo zh `` y' e` a b v g d e z i j k l m n o p r s t u f x `".split(
+        "shh sh ch Ch cz yu ya yo zh `` y' e` a b v g d e z i j k l m n o p r s t u f x `".split(
           / +/g
         );
     return function (text, engToRus) {
@@ -746,36 +750,13 @@ $(function () {
     });
   }
 
-  $(".catalog .select-options li").on("click", function () {
-    if ($(".electrical").hasClass("active")) {
-      if ($(this).index() == 1) {
-        $(".electric").fadeOut();
-        $(".electric.kapel").fadeIn();
-      } else if ($(this).index() == 2) {
-        $(".electric").fadeOut();
-        $(".electric.stone").fadeIn();
-      } else {
-        $(".electric").fadeOut();
-        $(".electric.foodTable").fadeIn();
-      }
-    } else {
-      if ($(this).index() == 1) {
-        $(".mechanic").fadeOut();
-        $(".mechanic.kapel").fadeIn();
-      } else if ($(this).index() == 2) {
-        $(".mechanic").fadeOut();
-        $(".mechanic.stone").fadeIn();
-      } else {
-        $(".mechanic").fadeOut();
-        $(".mechanic.foodTable").fadeIn();
-      }
-    }
-  });
-
   toggleGoods(".electrical", ".electric", ".mechanic");
   toggleGoods(".mechanical", ".mechanic", ".electric");
   inputChange("#checkbox1", "footTop");
   inputChange("#checkbox2", "footBottom");
   inputChange("#checkbox3", "side");
   inputChange("#checkbox4", "toilet");
+  inputChange("#checkbox5", "kapel");
+  inputChange("#checkbox6", "stone");
+  inputChange("#checkbox7", "foodTable");
 });
