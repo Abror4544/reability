@@ -896,6 +896,7 @@ section.catalog .filter_list .filter {
   display: none;
 }
 
+
 section.catalog .filter_list .filter:checked ~ label {
   color: #ffffff;
   background: #000000;
@@ -908,7 +909,8 @@ section.catalog .filter_list .filter:checked ~ label::after {
   right: 8px;
 }
 
-section.catalog .filter_list label {
+section.catalog .filter_list label,
+.open_checks{
   border: 1px solid #7f7f7f;
   padding: 10px;
   display: block;
@@ -922,7 +924,39 @@ section.catalog .filter_list label {
   font-family: "SFProDisplay-Medium";
 }
 
-section.catalog .filter_list label:hover {
+.open_checks{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.open_checks p{
+  font-family: "SFProDisplay-Medium";
+}
+
+.open_checks .arrow{
+  transform: rotate(90deg);
+}
+
+.extra{
+  position: absolute;
+  top: 38px;
+  width: 100%;
+  background: #ffffff;
+  z-index: 99;
+  display: none;
+}
+.extra_block{
+  position: relative;
+}
+.extra label{
+  margin: 0 !important;
+  width: 100%;
+}
+
+section.catalog .filter_list label:hover,
+.open_checks:hover {
   border: 1px solid #000000;
 }
 
@@ -1035,6 +1069,7 @@ section.catalog .img_block {
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
+  position: relative;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1074,8 +1109,8 @@ section.catalog .sale {
 
 section.catalog .desc {
   position: absolute;
-  top: 30%;
-  left: 20px;
+  right: 0;
+  bottom: 20px;
   color: #40b47c;
   z-index: 90;
   font-size: 16px;
