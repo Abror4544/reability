@@ -429,7 +429,8 @@
   padding: 25px 0 33px 0;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
-  transition: 0.5s;
+  transition: 0.5s;  
+  z-index: 9999;
 }
 
 .header .nav .menu ul li {
@@ -1903,7 +1904,6 @@ footer .callme {
     position: fixed;
     left: -100%;
     background: #ffffff;
-    z-index: 999;
     height: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
